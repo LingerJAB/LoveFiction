@@ -1,10 +1,12 @@
-# Love Fiction, but ain't fiction
+# Love Fiction, but ain't a fiction
 
 > *这里是鲜花盛开的风景*
 >
 > *或许是留给静静观赏的人*
 >
 > *陌生人，你好！*
+>
+> ** *Jan. 23. 2023.* **
 
 ## For me
 
