@@ -15,7 +15,7 @@
 
 ## For you
 全文用 **Markdown** 格式书写，以 `.md` 文件形式上传至 Github ，（不会有人去`fork`的吧...  
-`issue`还是`star`什么的不会太关心  
+**issue**还是**star**什么的不会太关心  
 随便看看什么的无所谓啦，就一小仓库反正💦
 
 ## For her
