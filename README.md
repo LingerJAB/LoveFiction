@@ -1,6 +1,6 @@
 # Love Fiction, but ain't a fiction
 
-> *这是鲜花盛开的风景*  
+> *这是片鲜花盛开的胜景*  
 > 
 > *或许是留给静静观赏的往客*
 >
