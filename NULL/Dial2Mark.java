@@ -9,7 +9,7 @@ import java.io.File;
  */
 public class Dial2Mark extends AbstractChat {
     public static final File input = new File("NULL/InputChat.txt");
-    public static final File output = new File("NULL/OutputChat.txt");
+    public static final File output = new File("NULL/OutputChat.md");
     public static void main(String[] args){
         ChatChain.run(input,output);
     }
