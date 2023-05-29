@@ -5,16 +5,16 @@ import java.util.Base64;
 import java.util.function.Function;
 import java.util.regex.Pattern;
 
-public class Title2Base64 {
+public class Title2Chaos {
     public static void main(String[] args) {
         // 输入待转换文字
         String title = """
                                 
-                04_靠近
+                0_o.md
                                 
                 """.trim();
 
-        mkdir(title, Title2Base64::encode);
+        mkdir(title, Title2Chaos::encode);
     }
 
 
@@ -31,7 +31,7 @@ public class Title2Base64 {
 
     public static void mkdir(String title, Function<String, String> function) {
         if(!check(title)) {
-            System.out.println("# \"" + title + "\" ain't a valid title! Form: [Date]_[Title]");
+            System.out.println("# \"" + title + "\" ain't a valid title!   Form: [Date]_[Title]");
             return;
         }
 
