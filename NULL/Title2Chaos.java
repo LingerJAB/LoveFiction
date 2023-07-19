@@ -10,7 +10,7 @@ public class Title2Chaos {
         // 输入待转换文字
         String title = """
                                 
-                0_o.md
+                说说.md
                                 
                 """.trim();
 
@@ -57,6 +57,6 @@ public class Title2Chaos {
     }
 
     public static boolean check(String title) {
-        return Pattern.compile("\\d{1,2}_.+").matcher(title).find();
+        return Pattern.compile("\\d{0,2}_?.+").matcher(title).find();
     }
 }
