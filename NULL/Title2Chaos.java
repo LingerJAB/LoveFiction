@@ -5,16 +5,15 @@ import java.util.Base64;
 import java.util.function.Function;
 import java.util.regex.Pattern;
 
+@SuppressWarnings("unused")
 public class Title2Chaos {
     public static void main(String[] args) {
-        // 输入待转换文字
-        String title = """
+        // 输入待转换文字   TIPS: 请不要输入[.md]
+        mkdir("""
                                 
-                说说.md
+                29_00000000000.md
                                 
-                """.trim();
-
-        mkdir(title, Title2Chaos::encode);
+                """.trim(), Title2Chaos::encode);
     }
 
 
@@ -23,18 +22,27 @@ public class Title2Chaos {
         return new String(encode);
     }
 
-    @SuppressWarnings("unused")
     public static String decode(String str) {
         byte[] decode = Base64.getDecoder().decode(str.getBytes(StandardCharsets.UTF_8));
         return new String(decode);
     }
 
     public static void mkdir(String title, Function<String, String> function) {
-        if(!check(title)) {
-            System.out.println("# \"" + title + "\" ain't a valid title!   Form: [Date]_[Title]");
-            return;
-        }
+        System.out.println();
+        String s;
 
+        switch(checkType(title)){
+            case 1-> s="../";
+            case 2-> s="";
+            case -2->{
+                System.out.println("# Don't end with '.md'");
+                return;
+            }
+            default -> {
+                System.out.println("# \"" + title + "\" ain't a valid title!\n# Form: [Date]_[Title] or [Title]");
+                return;
+            }
+        }
         String newTitle = function.apply(title).concat(".md");
         System.out.printf("# Original Title：\"%s\"\n# Transformed To：\"%s\"\n", title, newTitle);
         System.out.println();
@@ -42,7 +50,7 @@ public class Title2Chaos {
 
 
         if(file.exists()) {
-            System.out.println("\n# \"" + newTitle + "\" has been existed!");
+            System.out.println("# \"" + newTitle + "\" has been existed!");
         } else {
             try {
                 @SuppressWarnings("unused")
@@ -50,13 +58,17 @@ public class Title2Chaos {
             } catch(IOException e) {
                 throw new RuntimeException(e);
             }
-            System.out.println("\n# \"" + newTitle + "\" has been created!");
-            System.out.println("[" + title.substring(3) + "](../../CHAOS/" + newTitle + ")");
+            System.out.println("# \"" + newTitle + "\" has been created!");
+            System.out.println("[" + title.substring(3) + "](" + s + "../CHAOS/" + newTitle + ")");
         }
         System.out.println(file.toURI());
     }
 
-    public static boolean check(String title) {
-        return Pattern.compile("\\d{0,2}_?.+").matcher(title).find();
+    public static byte checkType(String title) {
+        if(title.endsWith(".md")) return -2;
+
+        if(Pattern.compile("\\d{1,2}_\\S+").matcher(title).find()) return 1;
+        else if(Pattern.compile("\\S{1,3}").matcher(title).find()) return 2;
+        return -1;
     }
 }
