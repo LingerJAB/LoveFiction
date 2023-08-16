@@ -11,7 +11,7 @@ public class Title2Chaos {
         // 输入待转换文字   TIPS: 请不要输入[.md]
         mkdir("""
                                 
-                29_00000000000.md
+                04_欲望
                                 
                 """.trim(), Title2Chaos::encode);
     }
